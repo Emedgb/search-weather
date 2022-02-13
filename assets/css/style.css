@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@keyframes rodando {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+    }
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #00ABBD;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container {
+    width: 1070px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #FF9933;
+    padding: 30px 0;
+}
+
+header .logo {
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    transition: ease all 0.2s;
+}
+
+header .logo:hover {
+    opacity: 0.7;
+}
+
+header .logo svg {
+    height: 30px;
+}
+
+header .busca input {
+    border: 1px solid #FFF;
+    background-color: transparent;
+    color: #FFF;
+    font-size: 1.3rem;
+    outline: none;
+    padding: 5px 10px;
+}
+
+header .busca input::placeholder {
+    color: #DDD;
+}
+
+header .busca button {
+    background-color: #026e81;
+    border: 1px solid #FFF;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    transition: ease all 0.3s;
+}
+
+header .busca button:hover {
+    background-color: #00ABBD;
+}
+
+/* >>>>> MAIN <<<<< */
+
+main {
+    background-color: #00ABBD;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+main .container {
+    justify-content: center;
+}
+
+main .container.animacao-fadein {
+    animation: fadein 1s;
+    display: none;
+}
+
+main .carregando {
+    animation: rodando 1s infinite;
+    border: 10px solid #A1C7E0;
+    border-top-color: #026e81;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+}
+
+main .container.erro-busca {
+    animation: fadein 1s;
+    display: none;
+}
+
+main .container.erro-busca h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+main .clima-info {
+    animation: fadein 1s;
+    background-color: #0099DD;
+    border: 3px solid #000;
+    border-radius: 10px;
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+main .clima-titulo {
+    font-size: 2rem;
+    margin: 60px 0;
+    text-align: center;
+}
+
+main .clima-temperatura,
+main .clima-detalhes {
+    display: flex;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+main .clima-imagem img {
+    height: 200px;
+}
+
+main .clima-temperatura div,
+main .clima-detalhes div{
+    flex: 1;
+    font-size: 2rem;
+    text-align: center;
+}
+
+main .clima-temperatura div span,
+main .clima-detalhes div span {
+    color: #026E81;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* >>>>> FOOTER <<<<< */
+
+footer {
+    background-color: #026E81;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* >>>>>MEDIA QUERY<<<<< */
+@media (max-width: 1100px) {
+    .container {
+        width: 100%;
+    }
+
+    header {
+        padding: 30px;
+    }
+
+    main {
+        padding: 0 30px;
+    }
+
+    .clima-temperatura,
+    .clima-detalhes {
+        flex-wrap: wrap;
+    }
+
+    main .clima-temperatura div,
+    main .clima-detalhes div {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 610px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header .logo {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 430px) { 
+    header {
+        padding: 20px;
+    }
+    
+    header .busca {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .busca input {
+        margin-bottom: 10px;
+    }
+
+    main {
+        padding: 0 15px;
+    }
+
+    main .carregando {
+        width: 180px;
+        height: 180px;
+    }
+
+    main .container.erro-busca h2 {
+        font-size: 1.5rem;
+    }
+
+    main .clima-titulo {
+        font-size: 1.2rem;
+    }
+
+    main .clima-titulo,
+    main .clima-temperatura,
+    main .clima-detalhes {
+        margin-bottom: 20px;
+    }
+
+    main .clima-temperatura div,
+    main .clima-detalhes div {
+        font-size: 1.5rem;
+    }
+}
